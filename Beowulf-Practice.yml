@@ -6,7 +6,13 @@ Base: Robot
 Children:
 - Name: Subsystems
   Base: Subsystems
-  Children: []
+  Children:
+  - Name: Intake
+    Base: Subsystem
+    Children: []
+    Properties:
+      Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Default Command, type: Command, validators: null, value: None}
   Properties: {}
 - Name: Operator Interface
   Base: OI
