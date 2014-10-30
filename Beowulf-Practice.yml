@@ -1,35 +1,39 @@
 Version 0.0.2
 
 ---
-Name: Beowulf-Practice
-Base: Robot
 Children:
-- Name: Subsystems
-  Base: Subsystems
-  Children:
-  - Name: Intake
-    Base: Subsystem
-    Children: []
+- Children:
+  - Children: []
     Properties:
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Default Command, type: Command, validators: null, value: None}
+    Base: Subsystem
+    Name: Intake
+  - Children: []
+    Properties:
+      Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Default Command, type: Command, validators: null, value: None}
+    Base: Subsystem
+    Name: chasse
   Properties: {}
-- Name: Operator Interface
+  Base: Subsystems
+  Name: Subsystems
+- Children: []
+  Properties: {}
   Base: OI
-  Children: []
-  Properties: {}
-- Name: Commands
-  Base: Commands
-  Children:
-  - Name: Autonomous Command
-    Base: Command
-    Children: []
+  Name: Operator Interface
+- Children:
+  - Children: []
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: None}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
+    Base: Command
+    Name: Autonomous Command
   Properties: {}
+  Base: Commands
+  Name: Commands
 Properties:
   Autonomous Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
     name: Autonomous Command, type: Command, validators: null, value: Autonomous Command}
@@ -48,6 +52,8 @@ Properties:
     validators: null, value: 701}
   Export Commands: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Export Commands, validators: null, value: true}
-  Java Project Directory: !!robotbuilder.data.properties.FileProperty {default: 'C:\Documents
-      and Settings\vandenrobots\NetBeansProjects', extension: null, folder: true,
-    name: Java Project Directory, validators: null, value: 'C:\Documents and Settings\vandenrobots\NetBeansProjects'}
+  Java Project Directory: !!robotbuilder.data.properties.FileProperty {default: /Users/Diego/NetBeansProjects,
+    extension: null, folder: true, name: Java Project Directory, validators: null,
+    value: 'C:\Documents and Settings\vandenrobots\NetBeansProjects'}
+Base: Robot
+Name: Beowulf-Practice
