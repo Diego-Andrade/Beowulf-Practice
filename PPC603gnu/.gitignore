@@ -1,11 +1,5 @@
-*.wrmakefile~
-*.project~
-*.wrproject~
-/Intake.o
-/Intake.d
 /RobotMap.o
 /RobotMap.h~
-*.cproject~
 /RobotMap.d
 /RobotMap.cpp~
 /Robot.o
@@ -16,3 +10,4 @@
 /OI.h~
 /OI.d
 /OI.cpp~
+/Makefile
