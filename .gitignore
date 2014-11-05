@@ -1,0 +1,5 @@
+*.wrmakefile~
+*.project~
+*.wrproject~
+/Intake.o
+/Intake.d
