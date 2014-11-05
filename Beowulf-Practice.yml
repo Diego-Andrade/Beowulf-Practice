@@ -30,6 +30,34 @@ Children:
     Properties:
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Default Command, type: Command, validators: null, value: None}
+  - Name: Conveyor
+    Base: Subsystem
+    Children:
+    - Name: Speed Controller 1
+      Base: Speed Controller
+      Children: []
+      Properties:
+        Output Module (Digital): !!robotbuilder.data.properties.ChoicesProperty
+          choices: ['1', '2']
+          default: '1'
+          name: Output Module (Digital)
+          validators: [PWMOutput]
+          value: '1'
+        Type: !!robotbuilder.data.properties.ChoicesProperty
+          choices: [Victor, Jaguar, Talon]
+          default: Victor
+          name: Type
+          validators: null
+          value: Jaguar
+        Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
+          choices: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+          default: '1'
+          name: Output Channel (PWM)
+          validators: [PWMOutput]
+          value: '1'
+    Properties:
+      Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Default Command, type: Command, validators: null, value: ConveyorOff}
   Properties: {}
 - Name: Operator Interface
   Base: OI
@@ -45,10 +73,11 @@ Children:
           default: None
           name: Command
           type: Command
-          validators: [TypeDropdownSelected]
+          validators: &id001 [TypeDropdownSelected]
           value: IntakeToggle
         Button: !!robotbuilder.data.properties.ChoicesProperty
-          choices: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+          choices: &id002 ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11',
+            '12']
           default: '1'
           name: Button
           validators: null
@@ -56,11 +85,35 @@ Children:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
           name: Joystick, validators: null, value: Driver}
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
-          choices: [whileHeld, whenPressed, whenReleased]
+          choices: &id003 [whileHeld, whenPressed, whenReleased]
           default: whileHeld
           name: When to Run
           validators: null
           value: whenReleased
+    - Name: dButtonB
+      Base: Joystick Button
+      Children: []
+      Properties:
+        Command: !!robotbuilder.data.properties.TypeSelectionProperty
+          default: None
+          name: Command
+          type: Command
+          validators: *id001
+          value: ConveyorOn
+        Button: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id002
+          default: '1'
+          name: Button
+          validators: null
+          value: '2'
+        Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
+          name: Joystick, validators: null, value: Driver}
+        When to Run: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id003
+          default: whileHeld
+          name: When to Run
+          validators: null
+          value: whileHeld
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
         choices: ['1', '2', '3', '4']
@@ -110,6 +163,22 @@ Children:
     Properties:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: Intake}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: ConveyorOff
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Conveyor}
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+  - Name: ConveyorOn
+    Base: Command
+    Children: []
+    Properties:
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Conveyor}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
   Properties: {}
