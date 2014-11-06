@@ -31,3 +31,4 @@
 /ctdt.o
 /CommandBasedRobotTemplate.out
 /Chassis.cpp~
+*.cpp~
