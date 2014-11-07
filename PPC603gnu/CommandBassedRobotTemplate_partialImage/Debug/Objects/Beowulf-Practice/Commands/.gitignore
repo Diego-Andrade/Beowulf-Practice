@@ -34,3 +34,5 @@
 /CommandBasedRobotTemplate.out
 /Chassis.cpp~
 *.d
+/Conveyor.d
+*.o

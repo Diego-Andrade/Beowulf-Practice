@@ -25,3 +25,5 @@
 /AutonomousCommand.h~
 *.d
 /IntakeMaintain.o
+/Conveyor.d
+*.o

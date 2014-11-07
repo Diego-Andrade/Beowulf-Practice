@@ -21,7 +21,7 @@ void ConveyorOn::Initialize() {
 }
 // Called repeatedly when this Command is scheduled to run
 void ConveyorOn::Execute() {
-	
+	Robot::conveyor->conveyorMotor->Set(-0.5);
 }
 // Make this return true when this Command no longer needs to run execute()
 bool ConveyorOn::IsFinished() {
