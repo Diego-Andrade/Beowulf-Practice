@@ -23,3 +23,5 @@
 /IntakeOff.o
 /Chassis.o
 /Chassis.d
+/Conveyor.d
+*.o
