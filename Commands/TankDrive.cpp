@@ -22,7 +22,7 @@ void TankDrive::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void TankDrive::Execute() {
 	const int leftY = 2;
-			const int rightY = 5;;
+			const int rightY = 5;
 			Robot::chassis->robotDrive->TankDrive(Robot::oi->getDriver(),
 					                      leftY,
 					                      Robot::oi->getDriver(),
