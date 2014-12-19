@@ -26,12 +26,12 @@ void UntilLightSensor::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void UntilLightSensor::Execute() {
-	
+	Robot::conveyor->conveyorMotor->Set(0.0);
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool UntilLightSensor::IsFinished() {
-	return false;
+	return (Robot::conveyor->lightSensor->Get() == 1);
 }
 
 // Called once after isFinished returns true
