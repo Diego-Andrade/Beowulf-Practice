@@ -11,7 +11,9 @@
 
 
 #include "Autonomous.h"
-
+#include "ConveyorOn.h"
+#include "ShooterOn.h"
+#include "ShootDelay.h"
 Autonomous::Autonomous() {
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
@@ -29,4 +31,9 @@ Autonomous::Autonomous() {
 	// e.g. if Command1 requires chassis, and Command2 requires arm,
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
+	AddParallel(new ShooterOn());
+	AddSequential(new ShootDelay());
+	AddSequential(new ConveyorOn());
+
+
 }
